@@ -1,0 +1,8 @@
+app/custom_segment/__pycache__/
+app/models/__pycache__/
+app/__pycache__/
+app/dashboard/__pycache__/
+app/test/__pycache__/
+app/services/__pycache__/
+venv_py310/
+.vscode/
