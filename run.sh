@@ -8,4 +8,4 @@ export AZURE_TENANT_ID="a50762c4-c5ad-413a-a05e-9ffe15752882"
 
 
 # run
-uvicorn app:app --reload --host 'https://napster-api.azurewebsites.net'
+uvicorn app.main:app --reload --host 'https://napster-api.azurewebsites.net'
