@@ -4,10 +4,8 @@ export AZURE_CLIENT_SECRET="c1t7Q~U4N4KCpeIuXZY_7lZ4_GOYHH.lCMfnU"
 export AZURE_TENANT_ID="a50762c4-c5ad-413a-a05e-9ffe15752882"
 
 
-# configs
-HOST='localhost'
-PORT=8080
+
 
 
 # run
-uvicorn app:app --reload --port $PORT --host $HOST
+uvicorn app:app --reload --host 'https://napster-api.azurewebsites.net'
