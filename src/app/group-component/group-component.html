@@ -1,0 +1,219 @@
+<div class="form-group">
+  <br />
+  <div class="row">
+    <div class="col-sm-6" *ngIf="groupvalid">
+      <span class="errormsgdata">Please complete the current group information</span>
+    </div>
+    <div class="col-sm-12">
+      <mat-icon matTooltip="Add Group" [matTooltipPosition]="tooltip" matTooltipHideDelay="100000"
+        class="pull-right-img" (click)="addformGroup()">add_box</mat-icon>
+
+    </div>
+  </div>
+
+</div>
+
+
+<div class="col-sm-8 fixed-content" [ngClass]="GroupformArray.length >1 || getquerys(0).length >1? 'scrollable' : ''">
+  <mat-accordion [multi]="false">
+    <mat-expansion-panel *ngFor="let form of GroupformArray; let f = index; let isFirst=first"
+      [hideToggle]="GroupformArray.length==1" [expanded]="GroupformArray.length==1">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-label class="matheadrlabl">{{form.value.groupNameforrelation}}</mat-label>
+        </mat-panel-title>
+        <mat-panel-description>
+
+          <div *ngIf="f>0" class="container">
+            <div class="row">
+              <div class="col-sm-8"></div>
+              <div class="col-sm-2" style="text-align: right;">
+
+                <mat-chip-list *ngIf="form.value.relation!=''">
+                  <mat-chip selected>{{form.value.relation}}</mat-chip>
+                </mat-chip-list>
+              </div>
+              <div class="col-sm-2" style="text-align: right;">
+                <mat-icon (click)=deleteform(f)>delete</mat-icon>
+              </div>
+
+
+            </div>
+
+
+          </div>
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+      <div>
+
+        <form [formGroup]="form">
+          <div *ngIf="f>0" style="margin-left:70%">
+            <div>
+              <label class="matheadrlabl">select operation</label>
+
+            </div>
+            <mat-button-toggle-group formControlName="relation" aria-label="Font Style">
+              <mat-button-toggle value="UNION">UNION</mat-button-toggle>
+              <mat-button-toggle value="INTERSECT">INTERSECT</mat-button-toggle>
+              <mat-button-toggle value="EXCEPT">EXCEPT</mat-button-toggle>
+            </mat-button-toggle-group>
+
+          </div>
+          <br />
+          <div formArrayName="query" [ngClass]="getquerys(f).length > 1 ? 'scrollable' : ''">
+            <div *ngFor="let query of getquerys(f).controls; let i=index" [formGroupName]="i">
+              <mat-form-field appearance="fill">
+                <mat-label>Kpi Type</mat-label>
+                <mat-select formControlName="kpitype" (selectionChange)=kpitypeChange($event,f,i)>
+                  <mat-option *ngFor="let kpitype of kpitypes" [value]="kpitype">
+                    {{kpitype}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Kpi</mat-label>
+                <mat-select formControlName="kpi" (selectionChange)=relation($event,f,i)>
+
+                  <mat-option *ngFor="let kpi of  query.value.kpirendered" [value]="kpi">
+                    {{kpi.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>relation</mat-label>
+                <mat-select formControlName="relation" (selectionChange)=final($event,f,i)>
+
+                  <mat-option *ngFor="let relation of query.value.relationrendered" [value]="relation">
+                    {{relation.value}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
+
+              <mat-form-field appearance="fill" *ngIf="query.value.renderedtext==true">
+
+                <input matInput formControlName="input">
+              </mat-form-field>
+
+
+              <mat-form-field appearance="fill" *ngIf="query.value.renderedselect==true">
+
+                <mat-select formControlName="input" (selectionChange)=input($event,f,i)>
+
+
+                  <mat-option *ngFor="let kpi of query.value.kpidatarendered " [value]="kpi">
+                    {{kpi.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" *ngIf="query.value.renderedmultiselect==true">
+
+                <mat-select formControlName="input" multiple (selectionChange)=input($event,f,i)>
+                  <input type="text" id="name" autocomplete="off" placeholder="Search" class="form-control"
+                    formControlName="input2" (keyup)="change(f,i,$event)">
+
+
+                  <mat-option *ngFor="let kpi of query.value.kpidatarendered " [value]="kpi">
+                    {{kpi.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
+
+              <mat-form-field appearance="fill" *ngIf="query.value.renderednumrange==true">
+                <mat-label>StartFrom</mat-label>
+
+                <input matInput type="number" formControlName="input">
+              </mat-form-field>
+              <mat-form-field appearance="fill" *ngIf="query.value.renderednumrange==true">
+                <mat-label>End</mat-label>
+
+                <input matInput type="number" formControlName="input1">
+              </mat-form-field>
+
+              <mat-icon *ngIf="i>0" (click)=deletequerys(f,i)>delete</mat-icon>
+
+
+
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12" style="margin-left: 60%; margin-bottom: 10px;">
+                  <mat-icon class="pull-right-img-qry" (click)="addquerys(f)" matTooltip="Add Query"
+                    [matTooltipPosition]="tooltip" matTooltipHideDelay="100000">add_box</mat-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</div>
+
+<div class="row">
+  <div class="col-sm-8 fixed-content-kpiconfigurationquery" [ngClass]="grouparray.length > 1 ? 'scrollable' : ''">
+    <div class="col-sm-4 matheadrlabl kpiconfigurationheader kpiconfigurationheaderlabl">
+      <span> kpi configutation query</span>
+      <mat-icon (click)="showpopup()" matTooltip="detailed view" [matTooltipPosition]="tooltip"
+        matTooltipHideDelay="100000">launch</mat-icon>
+      <mat-icon class="pull-right1" (click)="generateKpiQuery()" matTooltip="Refresh" [matTooltipPosition]="tooltip"
+        matTooltipHideDelay="100000">refresh</mat-icon>
+    </div>
+
+
+
+
+
+    <div class="col-sm-16" *ngFor="let group of grouparray; let i = index">
+
+      <mat-card class="mat-card-value">
+        <mat-card-title-group>
+          <mat-card-title>{{group.groupName}} - GroupLevel Relation: {{group.relation}}</mat-card-title>
+
+        </mat-card-title-group>
+        <mat-card-content>
+
+          <div class="row" *ngFor="let config of group.configkey; let j = index">
+            <div class="col-sm-12">
+              {{config}}
+            </div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+
+    </div>
+
+  </div>
+
+  <div class="col-sm-8 fixed-content1">
+    <div class="col-sm-16 matheadrlabl kpiconfigurationheader kpiconfigurationheaderlabl1">
+      <span> Audience Reach</span>
+    </div>
+    <div class="col-sm-4 pull-center">
+      <span class="Numberlabel">{{calculateValue}}</span>
+    </div>
+    <div class="col-sm-4" style="margin-left:60%;">
+      <button class="btn btn-primary" (click)="calculate()">Calculate</button>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="form-horizontal contentstart" style="margin-left:68%;margin-top:20px;">
+
+  <button class="btn btn-primary" [disabled]='validate' (click)="submitformArray()">Create Segment</button>
+</div>

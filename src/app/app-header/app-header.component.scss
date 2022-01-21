@@ -1,0 +1,88 @@
+mat-toolbar[color='primary'] {
+    top: 0px;
+    left: 0px;
+    position: sticky;
+    height: 64px;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    line-height: 33px;
+    z-index: 999999999999999 !important;
+  } 
+
+  .img-class{
+    width: 24px;
+    height: 24px;
+    float: right;
+  }
+
+  .profile{
+    margin-left:75%;
+  }
+
+  .right{
+    margin-left:30px;
+    /* height: 64px;
+    border: 1px solid black;
+    min-width:30px; */
+    background: #3f51b5;
+    color: white;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    border: none;
+  }
+
+  .header-style{
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    background-color: #3f51b5;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    cursor: pointer;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  ::ng-deep .mat-menu-panel{
+    margin-top: 30px !important;
+  }
+
+.user-info{
+  padding-left: 10px;
+}

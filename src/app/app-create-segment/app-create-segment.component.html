@@ -1,0 +1,36 @@
+<form class="form-horizontal contentstart" [formGroup]="campaignForm">
+  <div class="bottom-margin">
+    CREATE SEGMENT
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <label for="name" class="control-label required">Enter Campaign Tag</label>
+      <input type="text" id="name" class="form-control" formControlName="campaign" [matAutocomplete]="auto"
+        (input)="validatefield('campaign')">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </div>
+    <div *ngIf="campaignerror">
+      <span class="errormsgdata">Please enter Campaign </span>
+    </div>
+  </div>
+  <br />
+  <div class="form-group ">
+    <div class="col-sm-4">
+      <label for="name" class="control-label required">Enter segment Name </label>
+      <input type="text" id="name" class="form-control" formControlName="segmentName"
+        (keyup)="validatefield('segment')">
+    </div>
+    <div *ngIf="segmenterror">
+      <span class="errormsgdata">Please enter segment </span>
+    </div>
+  </div>
+
+  <group-component [validate]="validate" (newItemEvent)="getandsubmit($event)">
+
+  </group-component>
+
+</form>

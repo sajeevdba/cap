@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>PUSH TO DELIVERY SYSTEM</h2>
+<form [formGroup]="contactForm" (submit)="submit()">
+
+<mat-dialog-content class="mat-typography">
+    
+    <div>
+      Select Campaign name
+      <div >
+          <mat-form-field class="full-width">
+            <mat-label>Campaign Name</mat-label>
+          <mat-select formControlName="one" formControlName="campaignName" >
+            <mat-option *ngFor="let el of data.campInfo" [value]="el.campaign_id">
+            {{el.campaign_name}}
+            </mat-option>
+          </mat-select>
+          </mat-form-field>
+          
+        </div>
+    </div>
+    <!-- <div class="example-section">
+      <mat-checkbox class="example-margin col-md-4" formControlName="dl1" >Delivery System 1</mat-checkbox>
+      <mat-checkbox class="example-margin col-md-4" formControlName="dl2" >Delivery System 2</mat-checkbox>
+      <mat-checkbox class="example-margin col-md-4" formControlName="dl3">Delivery System 3</mat-checkbox>
+      <mat-checkbox class="example-margin col-md-4"formControlName="dl4" >Delivery System 4</mat-checkbox>
+    </div> -->
+
+    <div class="example-section">
+      <div class="col-md-4"  *ngFor="let category of getPhonesFormControls(); let i = index">
+        <!-- <input type="checkbox" [formControl]="category">
+    <label>{{ data.dlInfo[i].delivery_system_name }}</label> -->
+    <mat-checkbox class="example-margin col-md-4"[formControl]="category" >{{data.dlInfo[i].delivery_system_name}}</mat-checkbox>
+    </div>
+    </div>
+    
+<!-- Selected: <strong>{{ contactForm.get('myCategory').value }}</strong> -->
+
+    
+    
+    
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close class="primary-button">Close</button>
+  <button mat-button mat-dialog-close class="primary-button" type="submit" [disabled]="!contactForm.valid" (click)="submit()" >Submit</button>
+</mat-dialog-actions>
+</form>
+

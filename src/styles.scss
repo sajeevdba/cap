@@ -1,0 +1,223 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*********************** COMMON CSS DETAILS USED BY YOUR APPLICATION *************************/
+/*********************************************************************************************/
+/*** Add here all the common styles used by your application                                 */
+/*** The styles referent to colors must be added in the theme_color_xxxx.css and no here     */
+/*********************************************************************************************/
+
+/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+
+.mat-tab-group{
+    background-color: #191B1D;
+}
+
+.mat-tab-label{
+    color: #899197;
+}
+
+.mat-tab-body-content {
+    color: white;
+    overflow-x: hidden;
+    overflow-y: hidden !important;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar {
+    background-color: #FFFFFF !important;
+}
+
+.mat-tab-label-active{
+    color: #EEF0F1 !important;
+    opacity: 1 !important;
+} 
+
+.mat-tab-group{
+    margin-top: 5px;
+}
+
+.t-arisThemeEmbark.o-arisThemeEmbarkBlack .btn.btn-primary.btn-optimize{
+    width: fit-content;
+    border: none;
+    font-size: 14px !important;
+    line-height: 20px;
+}
+
+.t-arisThemeEmbark.o-arisThemeEmbarkBlack .btn.btn-primary.btn-optimize#grey-btn{
+    background-color: grey !important;
+}
+
+
+.t-arisThemeEmbark.o-arisThemeEmbarkBlack .btn.btn-dma-view{
+    width: fit-content;
+}
+
+.c3-legend-item {
+    fill: transparent !important
+  }
+
+  .mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard{
+      border-radius: 8px !important;
+      border: 1px solid #6C787F !important;
+  }
+
+  .mat-button-toggle-appearance-standard {
+    background: #2C3032 !important;
+    color: #6C787F !important;
+  }
+
+  .mat-button-toggle-checked{
+    background: #373F41 !important;
+    color: #EEF0F1 !important;
+  }
+
+  .mat-button-toggle-appearance-standard .mat-button-toggle-label-content{
+   
+    font-size: 14px;
+    font-family: Inter,sans-serif ;
+    line-height: 20px;
+  }
+
+.t-arisThemeEmbark.o-arisThemeEmbarkBlack select option {
+    color: #EEF0F1 !important; 
+    font-family: Inter,sans-serif ;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.t-arisThemeEmbark.o-arisThemeEmbarkBlack .calendar-icon {
+    display: none !important;
+       
+}
+
+/* .input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+    border-top-right-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+} */
+
+.t-arisThemeEmbark.o-arisThemeEmbarkBlack aris-multi-selectable-dropdown .dp-dropdown-container {
+    
+    width: 150px !important;
+    height: 40px !important;
+    border: 1px solid #6C787F !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    color: #EEF0F1 !important;
+}
+.t-arisThemeEmbark.o-arisThemeEmbarkBlack aris-multi-selectable-dropdown .dp-dropdown-container .dropdown-content.show-options {
+    width: 150px !important;
+}
+.c3 .c3-grid line {
+    stroke: #4E585B;       
+    opacity: 0.1;           
+  }
+  
+.c3 .c3-line {
+    stroke-width: 2px !important;
+}
+.t-arisThemeEmbark.o-arisThemeEmbarkBlack aris-multi-selectable-dropdown .dp-dropdown-container .dropbtn .arrow-icon {
+    margin: 3px !important;
+    margin-right: unset !important;
+}
+.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+    width: 115px !important;
+    height: 40px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 10px 16px !important;
+    border: 1px solid #4E585B;
+    border-radius: 8px;
+    margin: 0px;
+} 
+
+.mat-tab-group.chrt-dt {
+    background: #2C3032;
+}
+
+.mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination{
+    background: #373F41;
+}
+.t-arisThemeEmbark.o-arisThemeEmbarkBlack .form-control, .t-arisThemeEmbark.o-arisThemeEmbarkBlack  ng-select .ng-control {
+    border-bottom: 1px solid;
+    color: #EEF0F1;
+    border-top: 1px solid;
+   
+    border-left: 1px solid;
+    border-right: 1px solid;
+    width: 204px;
+    height: 44px;
+    background-color: transparent !important;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: -10px;
+    margin-top: -33px;
+}
+i.fa.fa-caret-down {
+    margin-left: 22px;
+    margin-top: 0px;
+}
+.t-arisThemeEmbark.o-arisThemeEmbarkBlack .form-control.filterSeacrh {
+    border-bottom: 1px solid !important;
+    color: #EEF0F1 !important;
+    border-top: 1px solid !important;
+  
+    border-left: 1px solid !important;
+    border-right: 1px solid !important;
+    margin-top: 8px !important;
+    width: 192px !important;
+    margin-left: 399px !important;
+    height: 44px !important;
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid #4E585B !important;
+    border-radius: 8px !important;
+}
+.t-arisThemeStarwars.o-arisThemeDark select, .t-arisThemeStarwars.o-arisThemeDark textarea, .t-arisThemeStarwars.o-arisThemeDark input, .t-arisThemeStarwars.o-arisThemeDark ng-select {
+    color: rgb(126, 119, 119) !important;
+}
+.t-arisThemeStarwars.o-arisThemeDark select, .t-arisThemeStarwars.o-arisThemeDark textarea, .t-arisThemeStarwars.o-arisThemeDark input, .t-arisThemeStarwars.o-arisThemeDark ng-select {
+    background-color: transparent !important;
+    border: none !important;
+}
+.t-arisThemeStarwars.o-arisThemeDark select option {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    font-size: 15px !important;
+    text-align: left !important;
+    color: #EEF0F1 !important;
+    border: solid 1px #01f1ff !important;
+    cursor: pointer;
+    line-height: 24px;
+    /* width: 50%; */
+    padding: 10px;
+}
+.t-arisThemeStarwars.o-arisThemeDark select option :hover {
+    background-color: #7d7d7d !important;
+  }
+.t-arisThemeStarwars.o-arisThemeDark select, .t-arisThemeStarwars.o-arisThemeDark textarea, .t-arisThemeStarwars.o-arisThemeDark input, .t-arisThemeStarwars.o-arisThemeDark ng-select {
+    color: white !important;
+    background-color: transparent !important;
+    border: none !important;
+    width: 196%;
+}
+
+.dma-tooltip .c3-tooltip th{
+    background-color: #3D4245 !important;
+    color: white !important;
+}
+
+.c3-tooltip, .c3-tooltip-container, .c3-tooltip td{
+    background-color: #3D4245 !important;
+    color: white !important;
+}
+
+ .c3-tooltip tr{
+    background-color: #3D4245 !important;
+}
+
+.dma-tooltip .c3-tooltip tr{
+    border: none !important;
+}

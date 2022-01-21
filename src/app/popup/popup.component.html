@@ -1,0 +1,78 @@
+<div *ngIf="data.show">
+  <div *ngFor="let query of data.queryarray">
+
+    <h2 mat-dialog-title> {{query.groupName}} Relation:{{query.relation}}</h2>
+
+
+    <div *ngFor="let config of query.configkey">
+      <mat-dialog-content class="mat-typography">
+
+        {{config}}
+      </mat-dialog-content>
+
+
+    </div>
+
+  </div>
+  <mat-dialog-actions>
+    <button class="btn btn-primary primary-button" mat-button mat-dialog-close
+      style="margin-left:90%; margin-top:20%">Close</button>
+  </mat-dialog-actions>
+</div>
+
+<div *ngIf="data.track">
+
+  <h2 mat-dialog-title> {{data.trackTitle}}</h2>
+
+
+  <mat-dialog-content class="mat-typography">
+
+    <p>
+      Campaign Tag/ ID: {{ data.cId }}
+    </p>
+
+    <p>
+      Segemnt Name/ ID: {{ data.sId }}
+    </p>
+    <p>
+      Started at: {{ data.sDate }}
+    </p>
+    <p>
+      Completed at {{ data.cDate }}
+    </p>
+    <p>
+      Status: {{ data.status }}
+    </p>
+
+    <p>
+      {{data.trackInfo}}
+    </p>
+
+    <div *ngIf="data.query">
+      <div *ngFor="let grp of data.query">
+        <div>
+           {{grp.groupName}}
+          <div *ngIf="grp.grouplevelRelation !== '' ">
+            Relation : {{grp.grouplevelRelation}}
+          </div>
+
+          <div *ngFor="let kpi of grp.kpiobject">
+            {{kpi.kpitype}}
+            {{kpi.kpi}}
+            {{kpi.relation}}
+            {{kpi.input}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </mat-dialog-content>
+
+
+
+  <mat-dialog-actions>
+    <button class="btn btn-primary primary-button" mat-button mat-dialog-close
+      style="margin-left:90%; margin-top:20%">Close</button>
+  </mat-dialog-actions>
+</div>

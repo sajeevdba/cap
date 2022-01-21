@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+    <div class="header-style" (click)="routeTo('create')">
+        <div class="row">
+            <div class="col-sm-2">
+                <mat-icon style="font-size: 30px;" (click)="routeTo('create')">home</mat-icon>
+            </div>
+            <div class="col-sm-2">
+                Cencosud Audience Platform (CAP)
+            </div>
+        </div>
+
+    </div>
+    <div class="row profile">
+        <div class="col-sm-2">
+            <mat-icon style="font-size: 30px;float: right; cursor:pointer" [matMenuTriggerFor]="menu" #menuTrigger (click)="openUserInfo()" >person</mat-icon>
+            <mat-menu #menu="matMenu">
+                <div class="user-info">
+                    Hello {{username}}
+                </div>
+                <!-- <div>
+                    <button (click)="logOut()" >Logout</button>
+                </div> -->
+              </mat-menu>
+        </div>
+        <div class="col-sm-2" style="margin-left: 20%;">
+            <mat-icon style="font-size: 30px;float: right;cursor:pointer" (click)='openNav()'>menu</mat-icon>
+        </div>
+
+        <!-- <img class="img-class" src="app/common/resources/img/notification.png"  alt="notification img"  width="24px"
+        height="24px"> -->
+    </div>
+    <div #mysidenav class="sidenav">
+        <a class="closebtn" (click)="closeNav()">&times;</a>
+        <a [routerLink]="['/create']" (click)="closeNav()">Create Segment</a>
+        <a [routerLink]="['/track']" (click)="closeNav()">Segment Track</a>
+        <a [routerLink]="['/dlsystem']" (click)="closeNav()">Push Track</a>
+
+    </div>
+    <div #userInfo class="sidenav">
+        <a class="closebtn" (click)="closeuserInfo()">&times;</a>
+        Hello {{username}}
+        <div>
+            {{name}}
+        </div>
+    </div>
+   
+</mat-toolbar>
+
+
+
+<ng-content></ng-content>

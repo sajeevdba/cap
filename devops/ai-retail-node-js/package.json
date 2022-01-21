@@ -1,0 +1,18 @@
+{
+    "name": "ai-retail-node-js",
+    "description": "Utility application that allow specify the response headers and the reverse-proxy-rules",
+    "version": "3.1.0",
+    "private": true,
+    "license": "Accenture",
+    "author": "Accenture",
+    "scripts": {
+        "debug": "node --inspect-brk index.js",
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "express": "4.15.2",
+        "helmet": "3.18.0",
+        "http-proxy": "1.18.0",
+        "morgan": "1.9.1"
+    }
+}

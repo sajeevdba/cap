@@ -1,0 +1,42 @@
+.required:after {
+    content:" *";
+    color: red;
+    
+  }
+
+.contentstart{
+    margin-top: 40px;
+    margin-left:5%;
+}
+
+
+.errormsgdata{
+  font-size: 16px !important;
+  text-transform: capitalize !important;
+  color:red;
+  text-align: center;
+
+}
+.bottom-margin{
+  margin-bottom: 15px;
+  font-weight: 14px;
+  font-weight: bold;
+}
+.control-label.required{
+:after { 
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 5px;
+    top:7px;
+    bottom: 4px;
+  }
+  :before { 
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 5px;
+    top:7px;
+    margin-bottom: 5px;
+  }
+}
